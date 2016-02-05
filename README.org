@@ -3,8 +3,7 @@
    1. See installation instructions for [[https://docs.docker.com/installation/mac/][Mac]], [[https://docs.docker.com/installation/windows/][Windows]], [[https://docs.docker.com/installation/][etc]]
    2. On Mac and Windows, launch "Docker Quickstart Terminal".  All subsequent commands will be run in the terminal launched by "Docker Quickstart Terminal".
    *Notes:* On other operating systems, the docker daemon may run automatically after installation.  Also, on other operating systems, you may need to use the command ~sudo docker~ instead of just ~docker~.
-** Get OrthoMCL Image 
-   Within the Docker terminal run ~docker pull granek/orthomcl~ to download orthomcl image.
+
 ** Download Run Script
    Download the run script [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/run_orthomcl.sh][run_orthomcl.sh]] (e.g. right click on the link and select "Save Link As ...")
 ** Run the script
@@ -38,7 +37,10 @@ echo "I am writing this from the future ... a docker container" > /host_dir/test
 #+END_SRC
 
 If you want to mount a different directory, just supply this as a full path when you run the orthomcl script ~bash run_orthomcl.sh FULL_PATH_TO_DATA~, and that directory will be mounted at ~/host_dir~ instead
-** Doing a local build of the OrthoMCL image
+** OrthoMCL Image
+*** Download OrthoMCL Image
+    The OrthoMCL image is automatically downloaded from Docker Hub by the run_orthomcl.sh script, but you can manually download it with the command ~docker pull granek/orthomcl~.
+*** Manual build of the OrthoMCL Image
 If you want to build the OrthoMCL image instead of pulling it from Docker Hub, download [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/Dockerfile][Dockerfile]] (or pull this repo), then run ~docker build -t orthomcl~ within the directory containing Dockerfile.
 
 
