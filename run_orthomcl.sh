@@ -1,4 +1,4 @@
-run_folder=$1
+RUN_DIR=${1:-$PWD}
 
 # Start MySQL
 echo Starting MySQL container...
@@ -11,7 +11,8 @@ sleep 10
 
 # Start OrthoMCL container
 echo Starting OrthoMCL container...
-docker run -it --name orthomcl-run --link orthomcl-mysql:mysql -v `pwd`/$run_folder:/ortho_mcl_run orthomcl /bin/bash
+echo Mounting local directory ${RUN_DIR} to /host_dir within the OrthoMCL container
+docker run -it --rm --name orthomcl-run --link orthomcl-mysql:mysql -v ${RUN_DIR}:/host_dir granek/orthomcl /bin/bash
 
 # Clean up after MySQL container
 docker kill `cat .ortho_mcl_db_container_id`
