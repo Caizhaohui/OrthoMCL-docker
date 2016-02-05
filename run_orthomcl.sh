@@ -2,7 +2,7 @@ run_folder=$1
 
 # Start MySQL
 echo Starting MySQL container...
-docker run --name orthomcl-mysql -e MYSQL_ROOT_PASSWORD=asdf1234 -e MYSQL_USER=orthomcl_user -e MYSQL_PASSWORD=shhh_this_is_secret -e MYSQL_DATABASE=orthomcl -d mysql | tee .ortho_mcl_db_container_id | head -n -1
+docker run --name orthomcl-mysql -e MYSQL_ROOT_PASSWORD=asdf1234 -e MYSQL_USER=orthomcl_user -e MYSQL_PASSWORD=shhh_this_is_secret -e MYSQL_DATABASE=orthomcl -d mysql | tee .ortho_mcl_db_container_id | head -n1
 
 # Only keep container id in temporary file
 echo `tail -n 1 .ortho_mcl_db_container_id` > .ortho_mcl_db_container_id
