@@ -6,7 +6,7 @@
 ** Get OrthoMCL Image 
    Within the Docker terminal run ~docker pull granek/orthomcl~ to download orthomcl image.
 ** Download Run Script
-   Download the run script [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/run_orthomcl.sh][run_orthomcl.sh]]
+   Download the run script [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/run_orthomcl.sh][run_orthomcl.sh]] (e.g. right click on the link and select "Save Link As ...")
 ** Run the script
    Within the Docker terminal run ~bash run_orthomcl.sh~ to launch the OrthoMCL container.
    You should now have a bash shell in the OrthoMCL container that looks something like this:
