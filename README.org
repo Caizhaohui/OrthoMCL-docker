@@ -17,15 +17,14 @@ root@a74d15695ca9:/#
    
 * OrthoMCL Docker Details
 ** One-time Use
-   Download the run script [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/run_orthomcl_oneshot.sh][run_orthomcl_oneshot.sh]]. Run this script within the Docker terminal run ~bash run_orthomcl_oneshot.sh~ to launch the OrthoMCL container.  This script cleans up after itself, which means that your session is completely obliterated once you exit. If you might want to resume your session, [[Multi-time Use]] below.
+   Download the run script [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/run_orthomcl_oneshot.sh][run_orthomcl_oneshot.sh]]. Run this script within the Docker terminal run ~bash run_orthomcl_oneshot.sh~ to launch the OrthoMCL container.  This script cleans up after itself, which means that your session is completely obliterated once you exit. If you might want to resume your session, see *Multi-time Use* below.
 ** Multi-time Use
-If you exit your OrthoMCL session by typing ~exit~ at the command line, you can start a new session on the same container
-#+BEGIN_SRC sh
-docker start orthomcl-run
-docker exec -ti orthomcl-run bash
-#+END_SRC
+If you want to get out of you OrthoMCL session, but want to resume it later (technically this is detaching), use the "escape sequence" ~Ctrl-p~ + ~Ctrl-q~. This leaves the container running.  To resume your orthomcl session use the command ~docker attach orthomcl-run~ within your "Docker Quickstart Terminal". *Note* that when you attach the shell will not print a prompt right away, just hit the enter/return key to get a prompt
 
-This is roughly equivalent to logging back into a server by ssh, after logging out.
+Accidentally did ~exit~ in your OrthoMCL session?  Don't worry, just run ~docker start orthomcl-run~ before ~docker attach orthomcl-run~.
+# docker exec -ti orthomcl-run bash
+# This is roughly equivalent to logging back into a server by ssh, after logging out.
+*** Cleanup When Done
 Once you are completely done with OrthoMCL, you might want to get rid of the containers:
 #+BEGIN_SRC sh
 docker stop orthomcl-mysql
@@ -42,5 +41,4 @@ If you want to mount a different directory, just supply this as a full path when
 ** Doing a local build of the OrthoMCL image
 If you want to build the OrthoMCL image instead of pulling it from Docker Hub, download [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/Dockerfile][Dockerfile]] (or pull this repo), then run ~docker build -t orthomcl~ within the directory containing Dockerfile.
 
-# To "exit" (technically this is detaching) from your orthomcl session in a way that lets you easily resume, use the escape sequence ~Ctrl-p~ + ~Ctrl-q~. This leaves the container running.  To resume your orthomcl session
 
