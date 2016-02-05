@@ -6,7 +6,7 @@
 ** Get OrthoMCL Image 
    Within the Docker terminal run ~docker pull granek/orthomcl~ to download orthomcl image.
 ** Download Run Script
-   Download the run script [run_orthomcl.sh](https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/run_orthomcl.sh).
+   Download the run script [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/run_orthomcl.sh][run_orthomcl.sh]]
 ** Run the script
    Within the Docker terminal run ~bash run_orthomcl.sh~ to launch the OrthoMCL container.
    You should now have a bash shell in the OrthoMCL container that looks something like this:
@@ -17,7 +17,7 @@ root@a74d15695ca9:/#
    
 * OrthoMCL Docker Details
 ** One-time Use
-   Download the run script [run_orthomcl_oneshot.sh](https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/run_orthomcl_oneshot.sh). Run this script within the Docker terminal run ~bash run_orthomcl_oneshot.sh~ to launch the OrthoMCL container.  This script cleans up after itself, which means that your session is completely obliterated once you exit. If you might want to resume your session, [[Multi-time Use]] below.
+   Download the run script [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/run_orthomcl_oneshot.sh][run_orthomcl_oneshot.sh]]. Run this script within the Docker terminal run ~bash run_orthomcl_oneshot.sh~ to launch the OrthoMCL container.  This script cleans up after itself, which means that your session is completely obliterated once you exit. If you might want to resume your session, [[Multi-time Use]] below.
 ** Multi-time Use
 If you exit your OrthoMCL session by typing ~exit~ at the command line, you can start a new session on the same container
 #+BEGIN_SRC sh
@@ -40,7 +40,7 @@ echo "I am writing this from the future ... a docker container" > /host_dir/test
 
 If you want to mount a different directory, just supply this as a full path when you run the orthomcl script ~bash run_orthomcl.sh FULL_PATH_TO_DATA~, and that directory will be mounted at ~/host_dir~ instead
 ** Doing a local build of the OrthoMCL image
-If you want to build the OrthoMCL image instead of pulling it from Docker Hub, download [Dockerfile](https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/Dockerfile) (or pull this repo), then run ~docker build -t orthomcl~ within the directory containing Dockerfile.
+If you want to build the OrthoMCL image instead of pulling it from Docker Hub, download [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/Dockerfile][Dockerfile]] (or pull this repo), then run ~docker build -t orthomcl~ within the directory containing Dockerfile.
 
 # To "exit" (technically this is detaching) from your orthomcl session in a way that lets you easily resume, use the escape sequence ~Ctrl-p~ + ~Ctrl-q~. This leaves the container running.  To resume your orthomcl session
 
