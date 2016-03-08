@@ -8,21 +8,6 @@ MYSQL_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' orthomcl-my
 
 echo "IP address for MySQL is: $MYSQL_IP"
 
-ORTHOMCL_CONFIG="orthomcl.config"
-echo "Creating OrthoMCL configuration file: $ORTHOMCL_CONFIG"
-
-echo "dbVendor=mysql
-dbConnectString=dbi:mysql:orthomcl:${MYSQL_IP}:3306
-dbLogin=orthomcl_user
-dbPassword=shhh_this_is_secret
-similarSequencesTable=SimilarSequences
-orthologTable=Ortholog
-inParalogTable=InParalog
-coOrthologTable=CoOrtholog
-interTaxonMatchView=InterTaxonMatch
-percentMatchCutoff=50
-evalueExponentCutoff=-5
-oracleIndexTblSpc=NONE" > $ORTHOMCL_CONFIG
 
 sleep 2
 
