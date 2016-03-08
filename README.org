@@ -18,9 +18,9 @@ root@a74d15695ca9:/#
 ** One-time Use
    Download the run script [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/run_orthomcl_oneshot.sh][run_orthomcl_oneshot.sh]]. Run this script within the Docker terminal run ~bash run_orthomcl_oneshot.sh~ to launch the OrthoMCL container.  This script cleans up after itself, which means that your session is completely obliterated once you exit. If you might want to resume your session, see *Multi-time Use* below.
 ** Multi-time Use
-If you want to get out of you OrthoMCL session, but want to resume it later (technically this is detaching), use the "escape sequence" ~Ctrl-p~ + ~Ctrl-q~. This leaves the container running.  To resume your orthomcl session use the command ~docker attach orthomcl-run~ within your "Docker Quickstart Terminal". *Note* that when you attach the shell will not print a prompt right away, just hit the enter/return key to get a prompt
+   If you expect to want to use OrthoMCL in several different sessions, you will want to run ~bash run_orthomcl.sh~. When you want to get out of your OrthoMCL session, but want to resume it later (technically this is detaching), use the "escape sequence" ~Ctrl-p~ + ~Ctrl-q~. This leaves the container running.  To resume your orthomcl session use the command ~docker attach orthomcl-run~ within your "Docker Quickstart Terminal". *Note* that when you attach the shell will not print a prompt right away, just hit the enter/return key to get a prompt.
 
-Accidentally did ~exit~ in your OrthoMCL session?  Don't worry, just run ~docker start orthomcl-run~ before ~docker attach orthomcl-run~.
+   Accidentally did ~exit~ in your OrthoMCL session?  Don't worry, just run ~docker start orthomcl-run~ before ~docker attach orthomcl-run~.
 # docker exec -ti orthomcl-run bash
 # This is roughly equivalent to logging back into a server by ssh, after logging out.
 *** Cleanup When Done
