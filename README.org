@@ -40,32 +40,32 @@ If you want to mount a different directory, just supply this as a full path when
 ** OrthoMCL Configuration File
    The github repo contains a script for automatically generating an OrthoMCL configuration file.  There are two ways to generate the configuration file.
 *** From repo
-    If you cloned the repo from github, and started things up by running the run_orthomcl.sh (or run_orthomcl_oneshot.sh) script in the repo directory, you can generate the configuration file by running the following command:
+    If you cloned the repo from github, and started things up by running the run_orthomcl.sh (or run_orthomcl_oneshot.sh) script in the repo directory, you can generate the configuration file by running the following command *within your docker container*:
 #+BEGIN_SRC sh
 bash /host_dir/test_run/create_config.sh > orthomcl.config
 #+END_SRC
 
-This should generate the config file in the current directory in your docker container.  You can check this with:
+This should generate the config file in the current directory in your docker container.  You can check this by running the following *within your docker container*:
 #+BEGIN_SRC sh
 cat orthomcl.config
 #+END_SRC
 
-If it worked, the second line should be the following, but probably with a different IP address:
+If it worked, the second line should be the following (but probably with a different IP address):
 #+BEGIN_SRC sh
 dbConnectString=dbi:mysql:orthomcl:172.17.0.40:3306
 #+END_SRC
 *** Download script
-    You can also download the config generation script into your docker container, and run it with the following commands:
+    You can also download the config generation script into your docker container, and run it with the following commands *within your docker container*:
 #+BEGIN_SRC sh
 wget https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/test_run/create_config.sh
 bash create_config.sh > orthomcl.config
 #+END_SRC
-This should generate the config file in the current directory in your docker container.  You can check this with:
+This should generate the config file in the current directory in your docker container.  You can check this by running the following *within your docker container*:
 #+BEGIN_SRC sh
 cat orthomcl.config
 #+END_SRC
 
-If it worked, the second line should be the following, but probably with a different IP address:
+If it worked, the second line should be the following (but probably with a different IP address):
 #+BEGIN_SRC sh
 dbConnectString=dbi:mysql:orthomcl:172.17.0.40:3306
 #+END_SRC
