@@ -4,6 +4,26 @@ RUN_DIR=${1:-$PWD}
 echo Starting MySQL container...
 docker run --name orthomcl-mysql -e MYSQL_ROOT_PASSWORD=asdf1234 -e MYSQL_USER=orthomcl_user -e MYSQL_PASSWORD=shhh_this_is_secret -e MYSQL_DATABASE=orthomcl -d mysql | head -n1
 
+MYSQL_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' orthomcl-mysql`
+
+echo "IP address for MySQL is: $MYSQL_IP"
+
+ORTHOMCL_CONFIG="orthomcl.config"
+echo "Creating OrthoMCL configuration file: $ORTHOMCL_CONFIG"
+
+echo "dbVendor=mysql
+dbConnectString=dbi:mysql:orthomcl:${MYSQL_IP}:3306
+dbLogin=orthomcl_user
+dbPassword=shhh_this_is_secret
+similarSequencesTable=SimilarSequences
+orthologTable=Ortholog
+inParalogTable=InParalog
+coOrthologTable=CoOrtholog
+interTaxonMatchView=InterTaxonMatch
+percentMatchCutoff=50
+evalueExponentCutoff=-5
+oracleIndexTblSpc=NONE" > $ORTHOMCL_CONFIG
+
 sleep 2
 
 # Start OrthoMCL container
