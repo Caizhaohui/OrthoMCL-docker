@@ -13,7 +13,18 @@
 #+BEGIN_SRC sh
 root@a74d15695ca9:/#
 #+END_SRC
-   
+** Generate OrthoMCL Configuration File
+    Download the config generation script into your docker container, and run it with the following commands *within your docker container*:
+#+BEGIN_SRC sh
+wget https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/test_run/create_config.sh
+bash create_config.sh > orthomcl.config
+#+END_SRC
+This should generate the config file ~orthomcl.config~ in the current directory in your docker container.
+** Install the schema into MySQL database
+   Run it with the following command *within your docker container* to set up the database:
+#+BEGIN_SRC sh
+orthomclInstallSchema orthomcl.config
+#+END_SRC
 * OrthoMCL Docker Details
 ** One-time Use
    Download the run script [[https://raw.githubusercontent.com/granek/OrthoMCL-docker/master/run_orthomcl_oneshot.sh][run_orthomcl_oneshot.sh]]. Run this script within the Docker terminal run ~bash run_orthomcl_oneshot.sh~ to launch the OrthoMCL container.  This script cleans up after itself, which means that your session is completely obliterated once you exit. If you might want to resume your session, see *Multi-time Use* below.
