@@ -1,0 +1,11 @@
+* docker VM
+  ssh bitnami@colab-sbx-332.oit.duke.edu
+* OrthoMCL problems
+  - https://www.biostars.org/p/47418/#55508
+  - http://seqanswers.com/forums/showthread.php?t=12291
+  - http://seqanswers.com/forums/showthread.php?t=32983
+* Resources for Docker mysql
+  - https://hub.docker.com/_/mysql/
+  - https://hub.docker.com/r/mysql/mysql-server/
+  - [[https://docs.docker.com/engine/userguide/containers/dockervolumes/][Data Volumes]]
+  - http://stackoverflow.com/questions/26982905/mysql-setup-using-docker
