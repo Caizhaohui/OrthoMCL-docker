@@ -1,14 +1,14 @@
 FROM centos
 
 # Install some utilities
-RUN yum install -y wget tar perl perl-DBI perl-DBD-MySQL gcc make mysql tmux ncbi-blast
+RUN yum install -y wget tar perl perl-DBI perl-DBD-MySQL gcc make mysql tmux ncbi-blast make
 
 # Make a software folder
 RUN mkdir /software
 
 # Install blast
 RUN cd /software \
-    && wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/release/LATEST/blast-2.2.26-x64-linux.tar.gz \
+    && wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/legacy/2.2.26/blast-2.2.26-x64-linux.tar.gz \
     && tar -xzvf blast-2.2.26-x64-linux.tar.gz \
     && rm blast-2.2.26-x64-linux.tar.gz
 
