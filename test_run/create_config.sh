@@ -1,5 +1,5 @@
 echo dbVendor=mysql
-echo dbConnectString=dbi:mysql:orthomcl:$MYSQL_PORT_3306_TCP_ADDR:$MYSQL_PORT_3306_TCP_PORT
+echo dbConnectString=dbi:mysql:orthomcl:mysql_local_infile=1:$MYSQL_PORT_3306_TCP_ADDR:$MYSQL_PORT_3306_TCP_PORT
 echo dbLogin=orthomcl_user
 echo dbPassword=shhh_this_is_secret
 echo similarSequencesTable=SimilarSequences
